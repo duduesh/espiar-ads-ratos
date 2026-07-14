@@ -13,8 +13,8 @@ _SKILL_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # ---------------------------------------------------------------- chave / auth
 def _resolve_op(ref):
-    """Resolve uma referencia op://... via 1Password CLI (uso interno do Dudu).
-    Alunos usam a chave crua no .env, entao isso nem roda pra eles."""
+    """Resolve uma referencia op://... via 1Password CLI (opcional).
+    Se voce usa a chave crua no .env, isso nem roda."""
     try:
         out = subprocess.run(["op", "read", ref], capture_output=True, text=True, timeout=60)
         if out.returncode == 0:
